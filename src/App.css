@@ -1,0 +1,73 @@
+
+body {
+  background-color: #f9f7fc;
+}
+
+h1, h2 {
+  font-size: 2rem;
+  font-family: 'Roboto', sans-serif;
+  color: #584499;
+  margin-bottom: 10px;
+}
+
+.form-control {
+  width: "400px";
+}
+
+.btn-info {
+  background-color: #6bbdd3 !important;
+}
+
+.disabled {
+  background-color: #dbd9de !important;
+}
+
+.location {
+  height: auto;
+  width: 100%;
+  background-color: #e9ecf5;
+  color: #584499;
+  font-weight: 500;
+  padding: 10px;
+}
+
+.agencieName {
+  height: 65px;
+  width: 100%;
+  background-color: #e9ecf5;
+  color: #584499;
+  font-weight: 500;
+  padding: 10px;
+}
+
+.agencieNameEmpy {
+  height: 65px;
+}
+
+.edit {
+  margin-top: 6px;
+  background-color: #e9ecf5;
+}
+
+.success {
+  height: auto;
+  width: 100%;
+  background-color: #e9ecf5;
+  color: #584499;
+  font-weight: 500;
+  padding: 10px;
+}
+
+.agencie-marker {
+  background: none;
+  border: none;
+}
+
+hr {
+  margin-bottom: 6px;
+}
+
+.add-icon {
+  width: 28px;
+  color: #584499;
+}
