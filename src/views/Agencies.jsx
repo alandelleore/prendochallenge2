@@ -2,10 +2,11 @@ import { GoogleMap, Marker } from "@react-google-maps/api";
 import { useContext, useState } from "react";
 import { GlobalContext } from "../context/GlobalContext";
 import { Link } from "react-router-dom";
-import carIcon from "../assets/car-icon.png";
-import "../App.css";
-import BtnIcon from "../components/BtnIcon";
 
+import "../App.css";
+
+import carIcon from "../assets/icons/car-icon.png";
+import BtnIcon from "../components/BtnIcon";
 import Icons from "../assets/icons/Icons";
 import ProgessBar from "../components/ProgessBar";
 
@@ -33,7 +34,7 @@ const Agencies = () => {
       {agencieName ? (
         <div className="agencieName">{`Titular: ${agencieName}`}</div>
       ) : (
-        <div className="agencieNameEmpy"></div>
+        <div className="agencieNameEmpty"></div>
       )}
 
       <GoogleMap

@@ -1,20 +1,15 @@
 import { GoogleMap, Marker } from "@react-google-maps/api";
-import { useContext } from "react";
-import { GlobalContext } from "../context/GlobalContext";
 
-const Map = () => {
-  const { data, completedAddress } = useContext(GlobalContext);
-  const { center } = data;
-
+const Map = ({ geoLoc, size, flag, zoom1, zoom2 }) => {
   return (
     <div className="mt-2">
       <GoogleMap
-        mapContainerStyle={{ height: "460px" }}
-        center={center}
-        zoom={completedAddress ? 13 : 5}
+        mapContainerStyle={{ height: size }}
+        center={geoLoc}
+        zoom={flag ? zoom1 : zoom2}
         apiKey={process.env.REACT_APP_GOOGLE_API_KEY}
       >
-        <Marker position={completedAddress ? center : null}></Marker>
+        <Marker position={flag ? geoLoc : null}></Marker>
       </GoogleMap>
     </div>
   );

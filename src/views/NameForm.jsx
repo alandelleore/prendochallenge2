@@ -1,15 +1,17 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { GlobalContext } from "../context/GlobalContext";
+
 import InputName from "../components/InputName";
 import BtnIcon from "../components/BtnIcon";
 import Icons from "../assets/icons/Icons";
-import NextButton from "../components/NextButton";
-import { Link } from "react-router-dom";
-import { GlobalContext } from "../context/GlobalContext";
+import ContinueButton from "../components/ContinueButton";
 import ProgessBar from "../components/ProgessBar";
 
 const NameForm = () => {
   const { BackBtn, CloseBtn } = Icons;
-  const { edit, fnClose } = useContext(GlobalContext);
+  const { edit, fnClose, data } = useContext(GlobalContext);
+  const { name } = data;
 
   return (
     <div>
@@ -25,9 +27,8 @@ const NameForm = () => {
       </div>
 
       <InputName />
-      <Link to="/step3">
-        <NextButton />
-      </Link>
+
+      <ContinueButton textBtn={"Siguiente"} flag={name} fnNavigate={"/step3"} />
     </div>
   );
 };

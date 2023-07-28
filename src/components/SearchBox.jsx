@@ -1,14 +1,25 @@
 import React, { useContext, useRef, useEffect } from "react";
 import { StandaloneSearchBox } from "@react-google-maps/api";
 import { GlobalContext } from "../context/GlobalContext";
-import EditButton from "./EditButton";
+
+import BtnIcon from "./BtnIcon";
+import Icons from "../assets/icons/Icons";
+
 import "../App.css";
 
 const SearchBox = () => {
   const inputRef = useRef();
 
-  const { setData, setCompletedAddress, completedAddress, editMode, data } =
-    useContext(GlobalContext);
+  const {
+    setData,
+    setCompletedAddress,
+    completedAddress,
+    editMode,
+    data,
+    edit,
+  } = useContext(GlobalContext);
+
+  const { editBtn } = Icons;
 
   useEffect(() => {
     inputRef.current.focus();
@@ -28,19 +39,13 @@ const SearchBox = () => {
     }
   };
 
-  /*const handleChange = (e) => {
-    setData({
-      address: e.target.value,
-    });
-  };*/
-
   return (
     <>
       {completedAddress ? (
         <div className="d-flex location">
           <div className="location">{data.address}</div>
           <div className="edit justify-content-end align-items-end">
-            <EditButton />
+            <BtnIcon imageSrc={editBtn} fnButton={edit} />
           </div>
         </div>
       ) : (

@@ -1,16 +1,19 @@
-import React, { useContext } from "react";
-import { GlobalContext } from "../context/GlobalContext";
+import { useNavigate } from "react-router-dom";
 
-const ContinueButton = () => {
-  const { completedAddress, btnEnabled, btnDisabled } =
-    useContext(GlobalContext);
+const ContinueButton = ({ textBtn, flag, fnNavigate }) => {
+  const navigate = useNavigate();
+
+  const btnDisabled =
+    "btn btn-outline-light disabled btn-lg text-white col-12 mt-4";
+  const btnEnabled = "btn btn-info btn-lg text-white col-12 mt-4";
 
   return (
     <button
-      className={completedAddress ? btnEnabled : btnDisabled}
-      disabled={!completedAddress}
+      className={flag ? btnEnabled : btnDisabled}
+      disabled={!flag}
+      onClick={() => navigate(fnNavigate)}
     >
-      Continuar
+      {textBtn}
     </button>
   );
 };

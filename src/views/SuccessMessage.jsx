@@ -1,14 +1,16 @@
 import React, { useContext } from "react";
-import { GlobalContext } from "../context/GlobalContext";
-import { GoogleMap } from "@react-google-maps/api";
 import { Link } from "react-router-dom";
+import { GlobalContext } from "../context/GlobalContext";
+
 import BtnIcon from "../components/BtnIcon";
 import Icons from "../assets/icons/Icons";
 import ProgessBar from "../components/ProgessBar";
+import Map from "../components/Map";
 
 const SuccessMessage = () => {
   const { data, btnEnabled, fnConfirm, fnClose } = useContext(GlobalContext);
   const { BackBtn, CloseBtn, Check } = Icons;
+  const { center, name, address } = data;
 
   return (
     <>
@@ -33,14 +35,11 @@ const SuccessMessage = () => {
         </div>
 
         <hr className="mb-4" />
-        <p>Titular: {data.name.toUpperCase()}</p>
-        <p>Dirección: {data.address}</p>
-        <GoogleMap
-          mapContainerStyle={{ height: "180px" }}
-          center={data.center}
-          zoom={15}
-          apiKey={process.env.REACT_APP_GOOGLE_API_KEY}
-        ></GoogleMap>
+        <p>Titular: {name.toUpperCase()}</p>
+        <p>Dirección: {address}</p>
+
+        <Map geoLoc={center} size={180} zoom1={15} flag={address} />
+
         <Link to="/step4">
           <button className={btnEnabled} onClick={fnConfirm}>
             Confirmar
